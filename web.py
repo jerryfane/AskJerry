@@ -10,6 +10,8 @@ chatbot = ChatBot('Ron Obvious')
 trainer = ChatterBotCorpusTrainer(chatbot)
 trainer_personal = ListTrainer(chatbot)
 
+askjerry.trainJerry(trainer_personal)
+
 # Train based on the english corpus
 trainer.train("chatterbot.corpus.english")
 
@@ -18,8 +20,6 @@ trainer.train("chatterbot.corpus.english.greetings")
 
 # Train based on the english conversations corpus
 trainer.train("chatterbot.corpus.english.conversations")
-
-askjerry.trainJerry(trainer_personal)
 
 @route('/')
 def homepage():
