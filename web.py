@@ -1,14 +1,25 @@
 from bottle import request, route, run, template, redirect, static_file
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
+from chatterbot.trainers import ListTrainer
+import askjerry
 
 chatbot = ChatBot('Ron Obvious')
 
 # Create a new trainer for the chatbot
 trainer = ChatterBotCorpusTrainer(chatbot)
+trainer_personal = ListTrainer(chatbot)
 
-# Train the chatbot based on the english corpus
+# Train based on the english corpus
 trainer.train("chatterbot.corpus.english")
+
+# Train based on english greetings corpus
+trainer.train("chatterbot.corpus.english.greetings")
+
+# Train based on the english conversations corpus
+trainer.train("chatterbot.corpus.english.conversations")
+
+askjerry.trainJerry(trainer_personal)
 
 @route('/')
 def homepage():

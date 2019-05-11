@@ -8,7 +8,7 @@
 </head>
 <body>
   <center><br>
-    <h1>{{response}}</h1><br>
+    <h2>{{response}}</h2><br>
     </center>
 </body>
 </html>
